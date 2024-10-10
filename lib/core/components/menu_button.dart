@@ -1,8 +1,7 @@
-import 'package:fic11_starter_pos/core/components/spaces.dart';
-import 'package:fic11_starter_pos/core/extensions/build_context_ext.dart';
+import 'package:aplikasi_sipos/core/components/spaces.dart';
+import 'package:aplikasi_sipos/core/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 import '../constants/colors.dart';
 
