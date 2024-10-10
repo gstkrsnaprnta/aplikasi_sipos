@@ -1,9 +1,7 @@
-import 'package:fic11_starter_pos/core/extensions/build_context_ext.dart';
+import 'package:aplikasi_sipos/core/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-
-
 
 class TabCustom extends StatelessWidget {
   final List<TabMenu> children;
