@@ -1,7 +1,9 @@
 import 'package:aplikasi_sipos/core/constants/colors.dart';
+import 'package:aplikasi_sipos/data/datasources/auth_local_datasource.dart';
 import 'package:aplikasi_sipos/data/datasources/auth_remote_datasource.dart';
 import 'package:aplikasi_sipos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:aplikasi_sipos/presentation/auth/pages/login_page.dart';
+import 'package:aplikasi_sipos/presentation/home/pages/dashboard_page.dart'; // Pastikan kamu import DashboardPage
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,7 +40,19 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: LoginPage(),
+        home: FutureBuilder<bool>(
+          future: AuthLocalDatasource().isAuth(),
+          builder: (context, snapshot) {
+            // Jika data telah didapatkan dari Future dan bernilai true, arahkan ke DashboardPage
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData && snapshot.data == true) {
+              return const DashboardPage(); // Arahkan ke Dashboard jika pengguna sudah login
+            } else {
+              return const LoginPage(); // Arahkan ke LoginPage jika pengguna belum login
+            }
+          },
+        ),
       ),
     );
   }
