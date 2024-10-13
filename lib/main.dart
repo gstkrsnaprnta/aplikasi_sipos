@@ -3,6 +3,7 @@ import 'package:aplikasi_sipos/data/datasources/auth_local_datasource.dart';
 import 'package:aplikasi_sipos/data/datasources/auth_remote_datasource.dart';
 import 'package:aplikasi_sipos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:aplikasi_sipos/presentation/auth/pages/login_page.dart';
+import 'package:aplikasi_sipos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:aplikasi_sipos/presentation/home/pages/dashboard_page.dart'; // Pastikan kamu import DashboardPage
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginBloc(AuthRemoteDatasource()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginBloc(AuthRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => LogoutBloc(AuthRemoteDatasource()),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
