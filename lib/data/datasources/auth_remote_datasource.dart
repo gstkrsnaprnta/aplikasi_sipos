@@ -1,3 +1,4 @@
+import 'dart:convert'; // Tambahkan ini
 import 'package:aplikasi_sipos/core/constants/variables.dart';
 import 'package:aplikasi_sipos/data/model/response/auth_response_model.dart';
 import 'package:dartz/dartz.dart';
@@ -8,13 +9,18 @@ class AuthRemoteDatasource {
     String email,
     String password,
   ) async {
-    final response =
-        await http.post(Uri.parse('${Variables.baseUrl}/api/login'), body: {
-      'email': email,
-      'password': password,
-    });
+    final response = await http.post(
+      Uri.parse('${Variables.baseUrl}/api/login'),
+      body: {
+        'email': email,
+        'password': password,
+      },
+    );
+
     if (response.statusCode == 200) {
-      return right(AuthResponseModel.fromJson(response.body as Map<String, dynamic>));
+      // Ubah bagian ini
+      final Map<String, dynamic> decodedResponse = jsonDecode(response.body);
+      return right(AuthResponseModel.fromJson(decodedResponse));
     } else {
       return left(response.body);
     }
