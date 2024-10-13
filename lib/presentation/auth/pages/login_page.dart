@@ -1,3 +1,4 @@
+import 'package:aplikasi_sipos/data/datasources/auth_local_datasource.dart';
 import 'package:aplikasi_sipos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
               state.maybeWhen(
                 orElse: () {},
                 success: (authResponseModel) {
+                  AuthLocalDatasource().saveAuthData(authResponseModel);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => DashboardPage()),
