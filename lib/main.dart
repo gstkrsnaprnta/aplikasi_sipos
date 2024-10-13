@@ -1,9 +1,11 @@
 import 'package:aplikasi_sipos/core/constants/colors.dart';
 import 'package:aplikasi_sipos/data/datasources/auth_local_datasource.dart';
 import 'package:aplikasi_sipos/data/datasources/auth_remote_datasource.dart';
+import 'package:aplikasi_sipos/data/datasources/product_remote_datasource.dart';
 import 'package:aplikasi_sipos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:aplikasi_sipos/presentation/auth/pages/login_page.dart';
 import 'package:aplikasi_sipos/presentation/home/bloc/logout/logout_bloc.dart';
+import 'package:aplikasi_sipos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:aplikasi_sipos/presentation/home/pages/dashboard_page.dart'; // Pastikan kamu import DashboardPage
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +27,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ProductBloc(ProductRemoteDatasource())..add(ProductEvent.fetch()),
         ),
       ],
       child: MaterialApp(
