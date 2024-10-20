@@ -11,73 +11,116 @@ class ProductResponseModel {
     required this.data,
   });
 
-  factory ProductResponseModel.fromRawJson(String str) =>
-      ProductResponseModel.fromJson(json.decode(str));
+  factory ProductResponseModel.fromJson(String str) =>
+      ProductResponseModel.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-  factory ProductResponseModel.fromJson(Map<String, dynamic> json) =>
+  factory ProductResponseModel.fromMap(Map<String, dynamic> json) =>
       ProductResponseModel(
         success: json["success"],
         message: json["message"],
-        data: List<Product>.from(json["data"].map((x) => Product.fromJson(x))),
+        data: List<Product>.from(json["data"].map((x) => Product.fromMap(x))),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "success": success,
         "message": message,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data.map((x) => x.toMap())),
       };
 }
 
 class Product {
-  final int id;
+  final int? id;
+  final int? productId;
   final String name;
-  final String description;
   final int price;
   final int stock;
   final String category;
   final String image;
-  final DateTime createdAt;
-  final DateTime updatedAt;
 
   Product({
-    required this.id,
+    this.id,
+    this.productId,
     required this.name,
-    required this.description,
     required this.price,
     required this.stock,
     required this.category,
     required this.image,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
-  factory Product.fromRawJson(String str) => Product.fromJson(json.decode(str));
+  factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
         id: json["id"],
+        productId: json["product_id"],
         name: json["name"],
-        description: json["description"] ?? '',
         price: json["price"],
         stock: json["stock"],
         category: json["category"],
-        image: json["image"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        image: json["image"] ?? '',
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
+  Map<String, dynamic> toMap() => {
         "name": name,
-        "description": description,
         "price": price,
         "stock": stock,
         "category": category,
         "image": image,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "product_id": productId,
       };
+  Map<String, dynamic> toLocalMap() => {
+        "name": name,
+        "price": price,
+        "stock": stock,
+        "category": category,
+        "image": image,
+        "product_id": id,
+      };
+
+  Product copyWith({
+    int? id,
+    int? productId,
+    String? name,
+    String? description,
+    int? price,
+    int? stock,
+    String? category,
+    String? image,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      productId: productId ?? this.productId,
+      name: name ?? this.name,
+      price: price ?? this.price,
+      stock: stock ?? this.stock,
+      category: category ?? this.category,
+      image: image ?? this.image,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Product &&
+        other.id == id &&
+        other.name == name &&
+        other.price == price &&
+        other.stock == stock &&
+        other.category == category &&
+        other.image == image;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        price.hashCode ^
+        stock.hashCode ^
+        category.hashCode ^
+        image.hashCode;
+  }
 }

@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           const SpaceHeight(120.0),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Container(
               child: Image.asset(
                 Assets.images.logo.path,
@@ -47,6 +47,7 @@ class _LoginPageState extends State<LoginPage> {
             controller: usernameController,
             label: 'Username',
           ),
+          SpaceHeight(20),
           const SpaceHeight(12.0),
           CustomTextField(
             controller: passwordController,
@@ -60,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                 orElse: () {},
                 success: (authResponseModel) {
                   AuthLocalDatasource().saveAuthData(authResponseModel);
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => DashboardPage()),
                   );

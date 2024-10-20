@@ -1,7 +1,8 @@
+import 'package:aplikasi_sipos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// import '../../../core/components/spaces.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 
@@ -27,16 +28,20 @@ class NavItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: 25.0,
-            height: 25.0,
-            child: SvgPicture.asset(
-              iconPath,
-              colorFilter: ColorFilter.mode(
-                isActive ? AppColors.black : AppColors.disabled,
-                BlendMode.srcIn,
-              ),
-            ),
+          BlocBuilder<CheckoutBloc, CheckoutState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: 25.0,
+                height: 25.0,
+                child: SvgPicture.asset(
+                  iconPath,
+                  colorFilter: ColorFilter.mode(
+                    isActive ? AppColors.black : AppColors.disabled,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              );
+            },
           ),
           const SpaceHeight(4.0),
           Text(

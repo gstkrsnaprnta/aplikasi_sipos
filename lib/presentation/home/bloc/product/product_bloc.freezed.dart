@@ -20,21 +20,24 @@ mixin _$ProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByKategori,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByKategori,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByKategori,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +45,24 @@ mixin _$ProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
-    required TResult Function(_FetchByKategori value) fetchByKategori,
+    required TResult Function(_FetchByKategori value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
-    TResult? Function(_FetchByKategori value)? fetchByKategori,
+    TResult? Function(_FetchByKategori value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
-    TResult Function(_FetchByKategori value)? fetchByKategori,
+    TResult Function(_FetchByKategori value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +132,8 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByKategori,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
   }) {
     return started();
   }
@@ -136,7 +143,8 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByKategori,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
   }) {
     return started?.call();
   }
@@ -146,7 +154,8 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByKategori,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -160,7 +169,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
-    required TResult Function(_FetchByKategori value) fetchByKategori,
+    required TResult Function(_FetchByKategori value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
   }) {
     return started(this);
   }
@@ -170,7 +180,8 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
-    TResult? Function(_FetchByKategori value)? fetchByKategori,
+    TResult? Function(_FetchByKategori value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
   }) {
     return started?.call(this);
   }
@@ -180,7 +191,8 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
-    TResult Function(_FetchByKategori value)? fetchByKategori,
+    TResult Function(_FetchByKategori value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -237,7 +249,8 @@ class _$FetchImpl implements _Fetch {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByKategori,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
   }) {
     return fetch();
   }
@@ -247,7 +260,8 @@ class _$FetchImpl implements _Fetch {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByKategori,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
   }) {
     return fetch?.call();
   }
@@ -257,7 +271,8 @@ class _$FetchImpl implements _Fetch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByKategori,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -271,7 +286,8 @@ class _$FetchImpl implements _Fetch {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
-    required TResult Function(_FetchByKategori value) fetchByKategori,
+    required TResult Function(_FetchByKategori value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
   }) {
     return fetch(this);
   }
@@ -281,7 +297,8 @@ class _$FetchImpl implements _Fetch {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
-    TResult? Function(_FetchByKategori value)? fetchByKategori,
+    TResult? Function(_FetchByKategori value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
   }) {
     return fetch?.call(this);
   }
@@ -291,7 +308,8 @@ class _$FetchImpl implements _Fetch {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
-    TResult Function(_FetchByKategori value)? fetchByKategori,
+    TResult Function(_FetchByKategori value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -348,7 +366,7 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
 
   @override
   String toString() {
-    return 'ProductEvent.fetchByKategori(category: $category)';
+    return 'ProductEvent.fetchByCategory(category: $category)';
   }
 
   @override
@@ -377,9 +395,10 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByKategori,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
   }) {
-    return fetchByKategori(category);
+    return fetchByCategory(category);
   }
 
   @override
@@ -387,9 +406,10 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByKategori,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
   }) {
-    return fetchByKategori?.call(category);
+    return fetchByCategory?.call(category);
   }
 
   @override
@@ -397,11 +417,12 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByKategori,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
     required TResult orElse(),
   }) {
-    if (fetchByKategori != null) {
-      return fetchByKategori(category);
+    if (fetchByCategory != null) {
+      return fetchByCategory(category);
     }
     return orElse();
   }
@@ -411,9 +432,10 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
-    required TResult Function(_FetchByKategori value) fetchByKategori,
+    required TResult Function(_FetchByKategori value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
   }) {
-    return fetchByKategori(this);
+    return fetchByCategory(this);
   }
 
   @override
@@ -421,9 +443,10 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
-    TResult? Function(_FetchByKategori value)? fetchByKategori,
+    TResult? Function(_FetchByKategori value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
   }) {
-    return fetchByKategori?.call(this);
+    return fetchByCategory?.call(this);
   }
 
   @override
@@ -431,11 +454,12 @@ class _$FetchByKategoriImpl implements _FetchByKategori {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
-    TResult Function(_FetchByKategori value)? fetchByKategori,
+    TResult Function(_FetchByKategori value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
     required TResult orElse(),
   }) {
-    if (fetchByKategori != null) {
-      return fetchByKategori(this);
+    if (fetchByCategory != null) {
+      return fetchByCategory(this);
     }
     return orElse();
   }
@@ -451,6 +475,123 @@ abstract class _FetchByKategori implements ProductEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchByKategoriImplCopyWith<_$FetchByKategoriImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchLocalImplCopyWith<$Res> {
+  factory _$$FetchLocalImplCopyWith(
+          _$FetchLocalImpl value, $Res Function(_$FetchLocalImpl) then) =
+      __$$FetchLocalImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchLocalImplCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$FetchLocalImpl>
+    implements _$$FetchLocalImplCopyWith<$Res> {
+  __$$FetchLocalImplCopyWithImpl(
+      _$FetchLocalImpl _value, $Res Function(_$FetchLocalImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FetchLocalImpl implements _FetchLocal {
+  const _$FetchLocalImpl();
+
+  @override
+  String toString() {
+    return 'ProductEvent.fetchLocal()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchLocalImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetch,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
+  }) {
+    return fetchLocal();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetch,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
+  }) {
+    return fetchLocal?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetch,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
+    required TResult orElse(),
+  }) {
+    if (fetchLocal != null) {
+      return fetchLocal();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_FetchByKategori value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
+  }) {
+    return fetchLocal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_FetchByKategori value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
+  }) {
+    return fetchLocal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_FetchByKategori value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
+    required TResult orElse(),
+  }) {
+    if (fetchLocal != null) {
+      return fetchLocal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchLocal implements ProductEvent {
+  const factory _FetchLocal() = _$FetchLocalImpl;
 }
 
 /// @nodoc

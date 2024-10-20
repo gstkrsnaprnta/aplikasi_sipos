@@ -14,5 +14,6 @@
       "editor.tabCompletion": "onlySnippets",
       "editor.wordBasedSuggestions": false,
       "editor.defaultFormatter": "Dart-Code.dart-code"
-  },
+},
+"cmake.sourceDirectory": "/Users/gustikrisnapranata/ILMU KOMPUTER/SEMESTER 3/REKAYASA PERANGKAT LUNAK/TUGAS AKHIR/aplikasi_sipos/linux",
 }

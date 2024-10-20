@@ -6,7 +6,7 @@ import '../../../../data/model/response/auth_response_model.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
-part 'login_bloc.freezed.dart'; // Pastikan ini benar
+part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRemoteDatasource authRemoteDatasource;

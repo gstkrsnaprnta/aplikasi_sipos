@@ -27,15 +27,12 @@ class AuthRemoteDatasource {
   }
 
   Future<Either<String, String>> logout() async {
-    // Ambil data autentikasi lokal terlebih dahulu
     final authData = await AuthLocalDatasource().getAuthData();
 
-    // Lakukan request logout ke server dengan menyertakan token dari authData
     final response = await http.post(
       Uri.parse('${Variables.baseUrl}/api/logout'),
       headers: {
-        'Authorization':
-            'Bearer ${authData.token}', // Gunakan token dari authData
+        'Authorization': 'Bearer ${authData.token}',
       },
     );
 
@@ -43,7 +40,6 @@ class AuthRemoteDatasource {
       final Map<String, dynamic> decodedResponse = jsonDecode(response.body);
       final message = decodedResponse['message'] ?? 'Logout berhasil';
 
-      // Hapus data autentikasi lokal setelah logout berhasil
       await AuthLocalDatasource().removeAuthData();
 
       return right(message);

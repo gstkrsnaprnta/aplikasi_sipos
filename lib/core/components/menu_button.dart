@@ -28,7 +28,7 @@ class MenuButton extends StatelessWidget {
     return Flexible(
       child: InkWell(
         onTap: onPressed,
-        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         child: Container(
           width: context.deviceWidth,
           padding: const EdgeInsets.all(8.0),

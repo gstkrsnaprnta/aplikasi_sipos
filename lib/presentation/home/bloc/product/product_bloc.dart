@@ -2,6 +2,7 @@ import 'package:aplikasi_sipos/data/datasources/product_remote_datasource.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../data/datasources/product_local_datasource.dart';
 import '../../../../data/model/response/product_response_model.dart';
 
 part 'product_event.dart';
@@ -29,6 +30,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               .where((element) => element.category == event.category)
               .toList();
       emit(ProductState.success(newProducts));
+    });
+
+    on<_FetchLocal>((event, emit) async {
+      emit(const ProductState.loading());
+      final localPproducts =
+          await ProductLocalDatasource.instance.getAllProduct();
+      products = localPproducts;
+
+      emit(ProductState.success(products));
     });
   }
 }

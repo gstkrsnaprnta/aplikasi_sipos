@@ -4,7 +4,6 @@ import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 
-
 class ProductEmpty extends StatelessWidget {
   const ProductEmpty({super.key});
 
@@ -12,8 +11,6 @@ class ProductEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Assets.icons.orders.svg(width: 114.0),
           const SpaceHeight(4.0),

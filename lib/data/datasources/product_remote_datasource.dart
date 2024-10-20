@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:aplikasi_sipos/core/constants/variables.dart';
 import 'package:aplikasi_sipos/data/datasources/auth_local_datasource.dart';
 import 'package:aplikasi_sipos/data/model/response/product_response_model.dart';
@@ -16,8 +15,7 @@ class ProductRemoteDatasource {
     );
 
     if (response.statusCode == 200) {
-      final Map<String, dynamic> decodedResponse = jsonDecode(response.body);
-      return right(ProductResponseModel.fromJson(decodedResponse));
+      return right(ProductResponseModel.fromJson(response.body));
     } else {
       return left(response.body);
     }
