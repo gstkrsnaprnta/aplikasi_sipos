@@ -63,21 +63,6 @@ class PaymentSuccessDialog extends StatelessWidget {
                   ),
                   const Divider(height: 36.0),
                   _LabelValue(
-                    label: 'NOMINAL BAYAR',
-                    value: paymentType == 'QRIS'
-                        ? total.currencyFormatRp
-                        : nominal.currencyFormatRp,
-                  ),
-                  const Divider(height: 36.0),
-                  _LabelValue(
-                    label: 'NOMINAL KEMBALI',
-                    value: paymentType == 'QRIS'
-                        ? '0' // Jika menggunakan QRIS, diasumsikan tidak ada kembalian
-                        : (nominal - total)
-                            .currencyFormatRp, // Menghitung dan menampilkan kembalian
-                  ),
-                  const Divider(height: 36.0),
-                  _LabelValue(
                     label: 'WAKTU PEMBAYARAN',
                     value: DateTime.now().toFormattedTime(),
                   ),
